@@ -13,10 +13,10 @@ jobs:
         steps:
             - name: checkout code
               uses: actions/checkout@v2
-            - name: start instance
+            - name: start redis
               run: |
                   docker-compose up -d redis
-            - name: wait for instance
+            - name: wait for redis
               run: |
                   ./support/wait.sh
             - name: tests

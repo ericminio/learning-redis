@@ -1,14 +1,16 @@
 #!/bin/bash
 
+source ./support/run.sh
+
 function waiting {
     ready=0
     while [ "$ready" -eq "0" ]
     do    
-        ready=`docker exec redis-6 redis-cli -h redis-6 INFO server | grep "redis_version" | wc -l`
+        ready=`redis-cli INFO server | grep "redis_version" | wc -l`
         if [ "$ready" -eq "0" ]; then    
-            echo "Waiting for redis instance redis-6"
+            echo "Waiting for redis"
             sleep 1;
         fi
     done;
-    echo "redis instance redis-6 is ready";
+    echo "redis is ready";
 }
