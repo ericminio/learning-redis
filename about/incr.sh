@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./support/run.sh
+source ./support/cli.sh
 
 function test_incr_increments_by_1 {
     redis-cli SET counter 0

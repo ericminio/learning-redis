@@ -15,7 +15,7 @@ jobs:
               uses: actions/checkout@v2
             - name: start redis
               run: |
-                  docker-compose up -d redis
+                  docker run -d --name redis-6 redis:6.2.14-alpine
             - name: wait for redis
               run: |
                   ./support/wait.sh
